@@ -17,6 +17,9 @@ import { StudentSearchComponent } from './student-search/student-search.componen
 import { ObRxComponent } from './ob-rx/ob-rx.component';
 import {MenuService, NzMenuModule} from 'ng-zorro-antd/menu';
 import { MenuServiceComponent } from './menu-service/menu-service.component';
+import {NzButtonModule} from "ng-zorro-antd/button";
+import {NzIconModule} from "ng-zorro-antd/icon";
+
 
 @NgModule({
   declarations: [
@@ -40,6 +43,8 @@ import { MenuServiceComponent } from './menu-service/menu-service.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    NzButtonModule,
+    NzIconModule,
     HttpClientInMemoryWebApiModule.forRoot(
       // 数据封装的属性，表示从根目录起就可以被引用
       InMemoryDataService, {dataEncapsulation: false}
