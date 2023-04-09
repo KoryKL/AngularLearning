@@ -8,9 +8,10 @@ import {StudentDetailComponent} from "./student-detail/student-detail.component"
 const routes: Routes = [
   {path: 'students', component: StudentComponent},
   {path: 'dashboard', component: DashboardComponent},
-  {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+  {path: '**', redirectTo: '/students', pathMatch: 'full'},
+  // {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   // 冒号（:）表示 :id 是一个占位符，它表示某个特定学生的 id
-  {path: 'detail/:id', component:StudentDetailComponent}
+  {path: 'detail/:id', component: StudentDetailComponent}
 ];
 
 @NgModule({

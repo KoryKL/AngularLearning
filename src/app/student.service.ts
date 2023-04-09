@@ -101,6 +101,7 @@ export class StudentService {
   }
 
   constructor(private messageService: MessageService,
+              private studentService: StudentService,
               private http: HttpClient) {
   }
 }
