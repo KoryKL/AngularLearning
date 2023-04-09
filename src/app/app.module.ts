@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StudentComponent } from './student/student.component';
@@ -16,9 +15,13 @@ import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {InMemoryDataService} from './in-memory-data.service';
 import { StudentSearchComponent } from './student-search/student-search.component';
 import { ObRxComponent } from './ob-rx/ob-rx.component';
+import {MenuService, NzMenuModule} from 'ng-zorro-antd/menu';
+import { MenuServiceComponent } from './menu-service/menu-service.component';
 
 @NgModule({
   declarations: [
+    // MenuService,
+    // NzMenuModule,
     AppComponent,
     StudentComponent,
     SexPipe,
@@ -28,9 +31,11 @@ import { ObRxComponent } from './ob-rx/ob-rx.component';
     MessagesComponent,
     DashboardComponent,
     StudentSearchComponent,
-    ObRxComponent
+    ObRxComponent,
+    MenuServiceComponent
   ],
   imports: [
+    NzMenuModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -40,7 +45,7 @@ import { ObRxComponent } from './ob-rx/ob-rx.component';
       InMemoryDataService, {dataEncapsulation: false}
     )
   ],
-  providers: [],
+  providers: [MenuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
