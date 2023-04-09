@@ -1,0 +1,9 @@
+<input type="text" id="name-input" #newName>
+<button (click)="addNewStudent(newName.value)">添加到父列表</button>
+
+<ul>
+  <li *ngFor="let name of nameList">
+    {{name}}
+  </li>
+</ul>
+<app-new-student (newStudentEvent)="addNewName($event)" ></app-new-student>
