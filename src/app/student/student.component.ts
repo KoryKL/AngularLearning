@@ -26,7 +26,11 @@ export class StudentComponent implements OnInit {
   getStudents(): void {
     this.studentService.getStudents()
       .subscribe(
-        students => this.students = students);
+        students => {
+          this.students = students
+          console.log(this.students)
+        }
+      );
         // (res) => {this.students = res}
         // (res) => {
         //   // 设置延时
