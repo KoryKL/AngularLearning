@@ -22,7 +22,6 @@ export class StudentService {
     headers: new HttpHeaders({'Content-Type:': 'application/json'})
   }
 
-
   // 改造成异步的数据传输，泛型<>
   // 获取所有学生信息
   getStudents(): Observable<Student[]> {

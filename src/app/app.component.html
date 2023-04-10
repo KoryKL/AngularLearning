@@ -1,34 +1,33 @@
 <!-- NG-ZORRO -->
 
 <!--<router-outlet></router-outlet>-->
-<p>hello</p>
-<h2>lalla</h2>
+<!--<p>hello</p>-->
+<!--<h2>lalla</h2>-->
 <!--<a href="https://github.com/NG-ZORRO/ng-zorro-antd" target="_blank"-->
 <!--   style="display: flex;align-items: center;justify-content: center;height: 100%;width: 100%;">-->
 <!--  <img height="300" src="https://img.alicdn.com/tfs/TB1X.qJJgHqK1RjSZFgXXa7JXXa-89-131.svg">-->
 <!--</a>-->
 
 
-<!--<h1>{{title}} app 正在运行</h1>-->
-<router-outlet></router-outlet>
-<nav>
-  <a routerLink="/students">列表视图</a>
-  <a routerLink="/dashboard">仪表盘视图</a>
+<h1>{{title}} app 正在运行</h1>
 
-</nav>
+<!--<nav>-->
+<!--  <a routerLink="/students">列表视图</a>-->
+<!--  <a routerLink="/dashboard">仪表盘视图</a>-->
+<!--</nav>-->
 <app-messages></app-messages>
 <app-ob-rx></app-ob-rx>
-
 
 <ul nz-menu nzMode="horizontal">
   <li nz-menu-item nzSelected>
     <span nz-icon nzType="mail"></span>
-    列表视图
+    <a routerLink="/students">列表视图</a>
   </li>
   <li nz-menu-item>
-    <span nz-icon nzType="mail"></span>
-    仪表盘视图
+    <span nz-icon nzType="appstore"></span>
+    <a routerLink="/dashboard">列表视图</a>
   </li>
+</ul>
   <!--  <li nz-submenu nzTitle="Navigation Three - Submenu" nzIcon="setting">-->
   <!--    <ul>-->
   <!--      <li nz-menu-group nzTitle="Item 1">-->
@@ -57,4 +56,3 @@
   <!--      </li>-->
   <!--    </ul>-->
   <!--  </li>-->
-</ul>
