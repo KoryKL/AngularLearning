@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { StudentComponent } from './student/student.component';
 import { SexPipe } from './sex.pipe';
 import { AgePipe } from './age.pipe';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { StudentDetailComponent } from './student-detail/student-detail.component';
 import { NewStudentComponent } from './new-student/new-student.component';
 import { MessagesComponent } from './messages/messages.component';
@@ -38,6 +38,7 @@ import {NzIconModule} from "ng-zorro-antd/icon";
     MenuServiceComponent
   ],
   imports: [
+    ReactiveFormsModule,
     NzMenuModule,
     BrowserModule,
     AppRoutingModule,
