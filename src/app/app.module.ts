@@ -26,6 +26,10 @@ import zh from '@angular/common/locales/zh';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import {NzListModule} from "ng-zorro-antd/list";
+import {NzTypographyModule} from "ng-zorro-antd/typography";
+import {NzSpaceModule} from "ng-zorro-antd/space";
+import {NzCardModule} from "ng-zorro-antd/card";
 
 registerLocaleData(zh);
 
@@ -61,7 +65,11 @@ registerLocaleData(zh);
     ),
     BrowserAnimationsModule,
     IconsProviderModule,
-    NzLayoutModule
+    NzLayoutModule,
+    NzListModule,
+    NzTypographyModule,
+    NzSpaceModule,
+    NzCardModule
   ],
   providers: [MenuService, { provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]
