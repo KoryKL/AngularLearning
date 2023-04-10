@@ -14,8 +14,8 @@ export class AppModule { }
 })
 export class AppComponent implements OnInit {
   title = 'my-angular-project';
-  constructor() {
-  }
+  // constructor() {
+  // }
 
   // constructor(private StudentService: StudentService) {
   // }
