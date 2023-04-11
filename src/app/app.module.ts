@@ -19,6 +19,21 @@ import {MenuService, NzMenuModule} from 'ng-zorro-antd/menu';
 import { MenuServiceComponent } from './menu-service/menu-service.component';
 import {NzButtonModule} from "ng-zorro-antd/button";
 import {NzIconModule} from "ng-zorro-antd/icon";
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { zh_CN } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import zh from '@angular/common/locales/zh';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { IconsProviderModule } from './icons-provider.module';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import {NzListModule} from "ng-zorro-antd/list";
+import {NzTypographyModule} from "ng-zorro-antd/typography";
+import {NzSpaceModule} from "ng-zorro-antd/space";
+import {NzCardModule} from "ng-zorro-antd/card";
+import {NzTableModule} from "ng-zorro-antd/table";
+import {NzDividerModule} from "ng-zorro-antd/divider";
+
+registerLocaleData(zh);
 
 
 @NgModule({
@@ -49,9 +64,18 @@ import {NzIconModule} from "ng-zorro-antd/icon";
     HttpClientInMemoryWebApiModule.forRoot(
       // 数据封装的属性，表示从根目录起就可以被引用
       InMemoryDataService, {dataEncapsulation: false}
-    )
+    ),
+    BrowserAnimationsModule,
+    IconsProviderModule,
+    NzLayoutModule,
+    NzListModule,
+    NzTypographyModule,
+    NzSpaceModule,
+    NzCardModule,
+    NzTableModule,
+    NzDividerModule
   ],
-  providers: [MenuService],
+  providers: [MenuService, { provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

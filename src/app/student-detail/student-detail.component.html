@@ -1,14 +1,18 @@
 <!--显示选中学生的详细信息-->
 <div *ngIf="student">
-  <h2>{{student.studentName}}的详细信息</h2>
-  <div>
-    <label>
-      学生姓名：<input [(ngModel)]="student.studentName" placeholder="学生姓名"/><br>
-      学生学号：{{student.id}}<br>
-      学生生日：{{student.studentBirthday |date:'yyyy年MM月dd日'}}<br>
-      学生性别：{{student.isMale |sex}}<br>
-      学生年龄：{{student.studentBirthday |age}}
-    </label>
+  <nz-space nzDirection="vertical">
+    <nz-card *nzSpaceItem nzTitle="{{student.studentName}}的详细信息" style="width: 300px">
+      <label>
+        学生姓名：<input [(ngModel)]="student.studentName" placeholder="学生姓名"/><br>
+        学生学号：{{student.id}}<br>
+        学生生日：{{student.studentBirthday |date:'yyyy年MM月dd日'}}<br>
+        学生性别：{{student.isMale |sex}}<br>
+        学生年龄：{{student.studentBirthday |age}}
+      </label>
+    </nz-card>
+  </nz-space>
   </div>
-  <button (click)="save()">保存</button>
-</div>
+
+  <button nz-button nzType="primary" (click)="save()">
+    <span nz-icon nzType="left"></span>保存并返回
+  </button>
