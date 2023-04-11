@@ -83,7 +83,7 @@ export class StudentService {
       // 因为是异步的，所以要写of
       return of([]);
     }
-    return this.http.get<Student[]>(`${this.studentsUrl}/?studentName=${term}`).pipe(
+    return this.http.get<Student[]>(`${this.studentsUrl}/?name=${term}`).pipe(
       tap(res => res.length ? this.log(`发现姓名为${term}的学生`)
           : this.log(`没有找到姓名为${term}的学生`),
         catchError(this.handleError<Student[]>('searchStudents',[]))

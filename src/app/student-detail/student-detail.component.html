@@ -1,13 +1,13 @@
 <!--显示选中学生的详细信息-->
 <div *ngIf="student">
   <nz-space nzDirection="vertical">
-    <nz-card *nzSpaceItem nzTitle="{{student.studentName}}的详细信息" style="width: 300px">
+    <nz-card *nzSpaceItem nzTitle="{{student.name}}的详细信息" style="width: 300px">
       <label>
-        学生姓名：<input [(ngModel)]="student.studentName" placeholder="学生姓名"/><br>
+        学生姓名：<input [(ngModel)]="student.name" placeholder="学生姓名"/><br>
         学生学号：{{student.id}}<br>
-        学生生日：{{student.studentBirthday |date:'yyyy年MM月dd日'}}<br>
+        学生生日：{{student.birthday |date:'yyyy年MM月dd日'}}<br>
         学生性别：{{student.isMale |sex}}<br>
-        学生年龄：{{student.studentBirthday |age}}
+        学生年龄：{{student.birthday |age}}
       </label>
     </nz-card>
   </nz-space>

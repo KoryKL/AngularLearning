@@ -4,6 +4,7 @@ import {Student} from "../student";
 import {StudentService} from "../student.service";
 import {Observable, tap} from "rxjs";
 import {Router} from "@angular/router";
+import {FormBuilder, UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-student',
@@ -19,7 +20,8 @@ export class StudentComponent implements OnInit {
   // private router: any;
 
   constructor(private studentService: StudentService,
-              private router: Router) {
+              private router: Router,
+              private formBuilder:FormBuilder) {
   }
 
   // students = STUDENTS;
@@ -29,8 +31,7 @@ export class StudentComponent implements OnInit {
 
   getStudents(): void {
     this.studentService.getStudents()
-      .subscribe(
-        students => {
+      .subscribe(students => {
           this.students = students
           console.log(this.students)
         }
@@ -47,14 +48,13 @@ export class StudentComponent implements OnInit {
   }
 
 
-
   add(name: string): void {
     // trim去掉输入的所有空格
     name = name.trim();
     if (!name) {
       return;
     }
-    this.studentService.addStudent({studentName: name} as Student).subscribe(
+    this.studentService.addStudent({name: name} as Student).subscribe(
       student => this.students?.push(student)
     );
   }
@@ -133,9 +133,30 @@ export class StudentComponent implements OnInit {
 
   // 生命周期函数
   createForm: any;
+  validateForm!: UntypedFormGroup;
+
+  submitForm(): void {
+    console.log('submit', this.validateForm.value);
+    // trim去掉输入的所有空格
+    let name = this.validateForm.value.name.trim();
+    if (!name) {
+      return;
+    }
+    this.studentService.addStudent(this.validateForm.value as Student).subscribe(
+      student => this.students?.push(student)
+    );
+  }
+
+  // constructor(private fb: UntypedFormBuilder) {}
 
   ngOnInit(): void {
     this.getStudents()
+    this.validateForm = this.formBuilder.group({
+      name: [null, [Validators.required]],
+      birthday: [null, [Validators.required]],
+      isMale: [true, [Validators.required]],
+      // remember: [true]
+    });
   }
 
 }

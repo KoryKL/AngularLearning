@@ -9,9 +9,9 @@ import {Student} from "./student";
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const students: Student[] = [
-      {id: '20200001', studentName: 'Apple', studentBirthday: new Date(2001, 1, 3), isMale: false},
-      {id: '20200002', studentName: 'Blue', studentBirthday: new Date(2002, 1, 3), isMale: true},
-      {id: '20200003', studentName: 'Cindy', studentBirthday: new Date(2003, 7, 3), isMale: false},
+      {id: '20200001', name: 'Apple', birthday: new Date(2001, 1, 3), isMale: false},
+      {id: '20200002', name: 'Blue', birthday: new Date(2002, 1, 3), isMale: true},
+      {id: '20200003', name: 'Cindy', birthday: new Date(2003, 7, 3), isMale: false},
     ];
     // 返回json格式
     return {students};
