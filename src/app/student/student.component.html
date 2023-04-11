@@ -31,22 +31,35 @@
 </div>
 
 
-<div>
-  <ul nz-list [nzDataSource]="students" nzBordered nzSize="large">
-    <nz-list-header>Header</nz-list-header>
-    <li nz-list-item *ngFor="let student of students" nzNoFlex>
-      <a routerLink="/detail/{{student.id}}">
-        <span nz-typography><mark>{{student.id}}</mark></span>
-        {{student.studentName}}
-      </a>
-      <ul nz-list-item-actions>
-        <nz-list-item-action>
-          <a (click)="delete(student)">delete</a>
-        </nz-list-item-action>
-      </ul>
-    </li>
-  </ul>
-</div>
+
+
+<nz-table #basicTable [nzData]="students ?? []">
+  <!--<nz-table #basicTable [nzData]="students">-->
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <!--    <th>Address</th>-->
+    <th>Action</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let student of students" (click)="goDetail(student.id)">
+<!--    <div routerLink="/detail/{{student.id}}">-->
+
+      <td>{{ student.id }}</td>
+      <td>{{ student.studentName }}</td>
+<!--    </div>-->
+    <!--    <td>{{ data.address }}</td>-->
+    <td>
+      <!--      <a>Action 一 {{ student.studentName }}</a>-->
+      <!--      <nz-divider nzType="vertical"></nz-divider>-->
+      <a (click)="delete(student)">delete</a>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>
 
 <div>
   <label>
@@ -59,3 +72,22 @@
 <!--就不会再显示详情-->
 <!--<app-student-detail [selectedStudent]="selectedStudent"></app-student-detail>-->
 
+
+
+<!--list 版本-->
+<!--<div>-->
+<!--  <ul nz-list [nzDataSource]="students" nzBordered nzSize="large">-->
+<!--    <nz-list-header>Header</nz-list-header>-->
+<!--    <li nz-list-item *ngFor="let student of students" nzNoFlex>-->
+<!--      <a routerLink="/detail/{{student.id}}">-->
+<!--        <span nz-typography><mark>{{student.id}}</mark></span>-->
+<!--        {{student.studentName}}-->
+<!--      </a>-->
+<!--      <ul nz-list-item-actions>-->
+<!--        <nz-list-item-action>-->
+<!--          <a (click)="delete(student)">delete</a>-->
+<!--        </nz-list-item-action>-->
+<!--      </ul>-->
+<!--    </li>-->
+<!--  </ul>-->
+<!--</div>-->

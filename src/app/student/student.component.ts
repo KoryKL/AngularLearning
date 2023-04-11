@@ -3,6 +3,7 @@ import {Student} from "../student";
 // import {STUDENTS} from "../mockData";
 import {StudentService} from "../student.service";
 import {Observable, tap} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-student',
@@ -14,8 +15,10 @@ import {Observable, tap} from "rxjs";
 export class StudentComponent implements OnInit {
   students ?: Student[];
   selectedStudent ?: Student;
+  // private router: any;
 
-  constructor(private studentService: StudentService) {
+  constructor(private studentService: StudentService,
+              private router:Router) {
   }
 
   // students = STUDENTS;
@@ -31,15 +34,15 @@ export class StudentComponent implements OnInit {
           console.log(this.students)
         }
       );
-        // (res) => {this.students = res}
-        // (res) => {
-        //   // 设置延时
-        //   // setTimeout(() => {
-        //   //   this.students = res;
-        //   // }, 2000);
-        //   this.students = res;
-        // }
-      // );
+    // (res) => {this.students = res}
+    // (res) => {
+    //   // 设置延时
+    //   // setTimeout(() => {
+    //   //   this.students = res;
+    //   // }, 2000);
+    //   this.students = res;
+    // }
+    // );
   }
 
   // 做一个强制类型转换
@@ -64,6 +67,28 @@ export class StudentComponent implements OnInit {
     this.selectedStudent = student;
     console.log(student);
   }
+
+  // goDetail(id : number) {
+  //   this.router.navigate('/detail',id)
+  // }
+  goDetail(id: string) {
+    // const studentId = parseInt(id, 10);
+    // const student = this.selectedStudent;
+      this.router?.navigate(['/detail', id]);
+  }
+  // goDetail(id: string) {
+  //   const student = this.selectedStudent.find(s => s.id === id);
+  //   if (student?.navigate) {
+  //     this.router.navigate(['/detail', id]);
+  //   }
+  // }
+  // goDetail(id: string) {
+  //   const student = this.selectedStudent.find((s: Student) => s.id === id);
+  //   if (student?.navigate === undefined) {
+  //     return;
+  //   }
+  //   this.router.navigate(['/detail', id]);
+  // }
 
   // nameList = ['a', 'b']
   //

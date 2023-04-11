@@ -30,6 +30,8 @@ import {NzListModule} from "ng-zorro-antd/list";
 import {NzTypographyModule} from "ng-zorro-antd/typography";
 import {NzSpaceModule} from "ng-zorro-antd/space";
 import {NzCardModule} from "ng-zorro-antd/card";
+import {NzTableModule} from "ng-zorro-antd/table";
+import {NzDividerModule} from "ng-zorro-antd/divider";
 
 registerLocaleData(zh);
 
@@ -69,7 +71,9 @@ registerLocaleData(zh);
     NzListModule,
     NzTypographyModule,
     NzSpaceModule,
-    NzCardModule
+    NzCardModule,
+    NzTableModule,
+    NzDividerModule
   ],
   providers: [MenuService, { provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]
