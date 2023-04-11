@@ -32,6 +32,11 @@ import {NzSpaceModule} from "ng-zorro-antd/space";
 import {NzCardModule} from "ng-zorro-antd/card";
 import {NzTableModule} from "ng-zorro-antd/table";
 import {NzDividerModule} from "ng-zorro-antd/divider";
+import {NzInputModule} from "ng-zorro-antd/input";
+import {NzSelectModule} from "ng-zorro-antd/select";
+import {NzInputNumberModule} from "ng-zorro-antd/input-number";
+import {NzDatePickerModule} from "ng-zorro-antd/date-picker";
+import {NzFormModule} from "ng-zorro-antd/form";
 
 registerLocaleData(zh);
 
@@ -73,7 +78,12 @@ registerLocaleData(zh);
     NzSpaceModule,
     NzCardModule,
     NzTableModule,
-    NzDividerModule
+    NzDividerModule,
+    NzInputModule,
+    NzSelectModule,
+    NzInputNumberModule,
+    NzDatePickerModule,
+    NzFormModule
   ],
   providers: [MenuService, { provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]

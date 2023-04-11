@@ -31,8 +31,6 @@
 </div>
 
 
-
-
 <nz-table #basicTable [nzData]="students ?? []">
   <!--<nz-table #basicTable [nzData]="students">-->
   <thead>
@@ -46,11 +44,11 @@
 
   <tbody>
   <tr *ngFor="let student of students" (click)="goDetail(student.id)">
-<!--    <div routerLink="/detail/{{student.id}}">-->
+    <!--    <div routerLink="/detail/{{student.id}}">-->
 
-      <td>{{ student.id }}</td>
-      <td>{{ student.studentName }}</td>
-<!--    </div>-->
+    <td>{{ student.id }}</td>
+    <td>{{ student.studentName }}</td>
+    <!--    </div>-->
     <!--    <td>{{ data.address }}</td>-->
     <td>
       <!--      <a>Action 一 {{ student.studentName }}</a>-->
@@ -61,17 +59,59 @@
   </tbody>
 </nz-table>
 
+<h2>新增学生</h2>
+
+
 <div>
   <label>
-    学生姓名：<input #studentName/>
+    学生姓名：<input #studentName nz-input style="width:30%;"/>
   </label>
-  <!--  新增学生，并且清空输入框-->
-  <button (click)="add(studentName.value); studentName.value = ''">添加新学生</button>
+  <!--  <label style="display: block;">-->
+  选择性别
+  <nz-select #isMale style="width:15%;">
+    <nz-option [nzLabel]="'男'" [nzValue]="'true'"></nz-option>
+    <nz-option [nzLabel]="'女'" [nzValue]="'false'"></nz-option>
+  </nz-select>
+  <!--  </label>-->
+
+  <!--  <input type="date"/>-->
+  <div>
+    <label style="display: block;">
+      选择生日:
+      <nz-date-picker #studentBirthday></nz-date-picker>
+      <!--    <input type="date">-->
+
+      <!--  新增学生，并且清空输入框-->
+<!--      ; add(isMale.value); add(studentBirthday.value)-->
+      <button style="display: block;"
+              (click)="add(studentName.value); studentName.value = ''">添加
+      </button>
+    </label>
+  </div>
+
+<!--  <form nz-form [formGroup]="createForm" class="login-form" (ngSubmit)="submitForm()">-->
+<!--    <nz-form-item>-->
+<!--      <nz-form-control nzErrorTip="Please input your username!">-->
+<!--        <nz-input-group nzPrefixIcon="user">-->
+<!--          <input type="text" nz-input formControlName="userName" placeholder="Username" />-->
+<!--        </nz-input-group>-->
+<!--      </nz-form-control>-->
+<!--    </nz-form-item>-->
+<!--    <nz-form-item>-->
+<!--      <nz-form-control nzErrorTip="Please input your Password!">-->
+<!--        <nz-input-group nzPrefixIcon="lock">-->
+<!--          <input type="password" nz-input formControlName="password" placeholder="Password" />-->
+<!--        </nz-input-group>-->
+<!--      </nz-form-control>-->
+<!--    </nz-form-item>-->
+<!--    <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Log in</button>-->
+<!--    Or-->
+<!--    <a>register now!</a>-->
+<!--  </form>-->
 </div>
 
 <!--就不会再显示详情-->
 <!--<app-student-detail [selectedStudent]="selectedStudent"></app-student-detail>-->
-
 
 
 <!--list 版本-->
@@ -90,4 +130,22 @@
 <!--      </ul>-->
 <!--    </li>-->
 <!--  </ul>-->
+<!--</div>-->
+
+
+<!--<div>-->
+<!--  <label>-->
+<!--    请输入学生姓名：<input #studentName/>-->
+<!--  </label>-->
+
+<!--  <label>-->
+<!--    选择性别-->
+<!--  </label>-->
+
+<!--  <label>-->
+<!--    选择生日-->
+<!--  </label>-->
+<!--  &lt;!&ndash;  新增学生，并且清空输入框&ndash;&gt;-->
+<!--  <button (click)="add(studentName.value); studentName.value = ''">添加</button>-->
+
 <!--</div>-->

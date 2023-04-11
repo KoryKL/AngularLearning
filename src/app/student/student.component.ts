@@ -15,10 +15,11 @@ import {Router} from "@angular/router";
 export class StudentComponent implements OnInit {
   students ?: Student[];
   selectedStudent ?: Student;
+
   // private router: any;
 
   constructor(private studentService: StudentService,
-              private router:Router) {
+              private router: Router) {
   }
 
   // students = STUDENTS;
@@ -45,7 +46,8 @@ export class StudentComponent implements OnInit {
     // );
   }
 
-  // 做一个强制类型转换
+
+
   add(name: string): void {
     // trim去掉输入的所有空格
     name = name.trim();
@@ -56,6 +58,38 @@ export class StudentComponent implements OnInit {
       student => this.students?.push(student)
     );
   }
+
+
+  // 做一个强制类型转换
+  // add(name: string, isMale: boolean, birthday: Date): void {
+  //   // trim去掉输入的所有空格
+  //   name = name.trim();
+  //   if (!name) {
+  //     return;
+  //   }
+  //   this.studentService.addStudent({studentName: name, studentBirthday: birthday, isMale: isMale} as Student).subscribe(
+  //     student => this.students?.push(student)
+  //   );
+  // }
+  //
+  //
+  // add(name:string, isMale: boolean, birthday: Date) {
+  //   fetch('/api/addStudent', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({
+  //       name: name,
+  //       isMale: isMale,
+  //       birthday: birthday
+  //     })
+  //   })
+  //     .then(response => response.json())
+  //     .then(data => console.log(data))
+  //     .catch(error => console.error(error))
+  // }
+
 
   delete(student: Student): void {
     this.students = this.students?.filter(h => h !== student)
@@ -74,8 +108,9 @@ export class StudentComponent implements OnInit {
   goDetail(id: string) {
     // const studentId = parseInt(id, 10);
     // const student = this.selectedStudent;
-      this.router?.navigate(['/detail', id]);
+    this.router?.navigate(['/detail', id]);
   }
+
   // goDetail(id: string) {
   //   const student = this.selectedStudent.find(s => s.id === id);
   //   if (student?.navigate) {
@@ -97,6 +132,8 @@ export class StudentComponent implements OnInit {
   // }
 
   // 生命周期函数
+  createForm: any;
+
   ngOnInit(): void {
     this.getStudents()
   }

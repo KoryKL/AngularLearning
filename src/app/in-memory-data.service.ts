@@ -19,12 +19,11 @@ export class InMemoryDataService implements InMemoryDbService {
 
   constructor() {
 
-
   }
 
   // 重写id函数，实现主键自增
   // 返回值类型是string
-  genID(students: Student[]): string {
+  genId(students: Student[]): string {
     return students.length > 0 ? String(
       Math.max(...students.map(student => Number(student.id))) + 1) : '20200001';
   }
