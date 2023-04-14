@@ -1,16 +1,4 @@
-<!--<label for="search-box">-->
-<!--  <h4>-->
-<!--    搜索学生：<label for="search-box"></label>-->
-<!--  </h4>-->
-  <!--  <label for="search-box">-->
-  <!--  <nz-input-group [nzSuffix]="suffixIconSearch">-->
-  <!--    <input type="text" nz-input placeholder="input search text" />-->
-  <!--  </nz-input-group>-->
-  <!--  <ng-template #suffixIconSearch>-->
-  <!--    <span nz-icon nzType="search"></span>-->
-  <!--  </ng-template>-->
-  <!--  </label>-->
-  <!--  监听 input 事件, input 标签表示输入框 -->
+
 
   <div>
     <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
@@ -20,6 +8,7 @@
       <button nz-button nzType="primary" nzSearch (click)="search(searchBox.value)"><span nz-icon nzType="search"></span></button>
     </ng-template>
   </div>
+
 <!--  <input #searchBox id="search-box" (input)="search(searchBox.value)"/>-->
   <ul>
     <!--    异步，所以带 $-->

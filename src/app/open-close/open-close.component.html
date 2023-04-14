@@ -1,0 +1,4 @@
+<div [@openClose]="isOpen?'open':'closed'" class="">
+  <p>当前为{{isOpen ? 'open' : 'closed'}}状态</p>
+</div>
+<button (click)="onClick()">状态切换</button>

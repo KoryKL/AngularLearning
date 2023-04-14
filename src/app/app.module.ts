@@ -1,31 +1,31 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { StudentComponent } from './student/student.component';
-import { SexPipe } from './sex.pipe';
-import { AgePipe } from './age.pipe';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {StudentComponent} from './student/student.component';
+import {SexPipe} from './sex.pipe';
+import {AgePipe} from './age.pipe';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { StudentDetailComponent } from './student-detail/student-detail.component';
-import { NewStudentComponent } from './new-student/new-student.component';
-import { MessagesComponent } from './messages/messages.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import {StudentDetailComponent} from './student-detail/student-detail.component';
+import {NewStudentComponent} from './new-student/new-student.component';
+import {MessagesComponent} from './messages/messages.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
 import {HttpClientModule} from '@angular/common/http';
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {InMemoryDataService} from './in-memory-data.service';
-import { StudentSearchComponent } from './student-search/student-search.component';
-import { ObRxComponent } from './ob-rx/ob-rx.component';
+import {StudentSearchComponent} from './student-search/student-search.component';
+import {ObRxComponent} from './ob-rx/ob-rx.component';
 import {MenuService, NzMenuModule} from 'ng-zorro-antd/menu';
-import { MenuServiceComponent } from './menu-service/menu-service.component';
+import {MenuServiceComponent} from './menu-service/menu-service.component';
 import {NzButtonModule} from "ng-zorro-antd/button";
 import {NzIconModule} from "ng-zorro-antd/icon";
-import { NZ_I18N } from 'ng-zorro-antd/i18n';
-import { zh_CN } from 'ng-zorro-antd/i18n';
-import { registerLocaleData } from '@angular/common';
+import {NZ_I18N} from 'ng-zorro-antd/i18n';
+import {zh_CN} from 'ng-zorro-antd/i18n';
+import {registerLocaleData} from '@angular/common';
 import zh from '@angular/common/locales/zh';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { IconsProviderModule } from './icons-provider.module';
-import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {IconsProviderModule} from './icons-provider.module';
+import {NzLayoutModule} from 'ng-zorro-antd/layout';
 import {NzListModule} from "ng-zorro-antd/list";
 import {NzTypographyModule} from "ng-zorro-antd/typography";
 import {NzSpaceModule} from "ng-zorro-antd/space";
@@ -37,6 +37,9 @@ import {NzSelectModule} from "ng-zorro-antd/select";
 import {NzInputNumberModule} from "ng-zorro-antd/input-number";
 import {NzDatePickerModule} from "ng-zorro-antd/date-picker";
 import {NzFormModule} from "ng-zorro-antd/form";
+import {NzAutocompleteModule} from "ng-zorro-antd/auto-complete";
+import {AutocompleteComponent} from "./autocomplete/autocomplete.component";
+import {OpenCloseComponent} from "./open-close/open-close.component";
 
 registerLocaleData(zh);
 
@@ -55,7 +58,9 @@ registerLocaleData(zh);
     DashboardComponent,
     StudentSearchComponent,
     ObRxComponent,
-    MenuServiceComponent
+    MenuServiceComponent,
+    AutocompleteComponent,
+    OpenCloseComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -71,6 +76,7 @@ registerLocaleData(zh);
       InMemoryDataService, {dataEncapsulation: false}
     ),
     BrowserAnimationsModule,
+    NzAutocompleteModule,
     IconsProviderModule,
     NzLayoutModule,
     NzListModule,
@@ -85,7 +91,8 @@ registerLocaleData(zh);
     NzDatePickerModule,
     NzFormModule
   ],
-  providers: [MenuService, { provide: NZ_I18N, useValue: zh_CN }],
+  providers: [MenuService, {provide: NZ_I18N, useValue: zh_CN}],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

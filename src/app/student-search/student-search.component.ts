@@ -15,6 +15,16 @@ export class StudentSearchComponent implements OnInit {
   constructor(private studentService: StudentService) {
   }
 
+  inputValue: string = '';
+  options: string[] = [];
+
+  onInput(): void {
+    this.studentService.searchStudent(this.inputValue).subscribe(
+      res => this.options = res.map(student => student.name)
+    );
+  }
+
+
   private searchTerms = new Subject<string>();
 
   search(term: string): void {
