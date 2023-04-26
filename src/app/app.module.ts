@@ -40,6 +40,7 @@ import {NzFormModule} from "ng-zorro-antd/form";
 import {NzAutocompleteModule} from "ng-zorro-antd/auto-complete";
 import {AutocompleteComponent} from "./autocomplete/autocomplete.component";
 import {OpenCloseComponent} from "./open-close/open-close.component";
+import {NgxEchartsModule} from "ngx-echarts";
 
 registerLocaleData(zh);
 
@@ -71,10 +72,14 @@ registerLocaleData(zh);
     HttpClientModule,
     NzButtonModule,
     NzIconModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      // 数据封装的属性，表示从根目录起就可以被引用
-      InMemoryDataService, {dataEncapsulation: false}
-    ),
+    NgxEchartsModule.forRoot({
+      echarts:() => import('echarts')
+    }),
+    // 模拟数据服务器，屏蔽对外的http请求
+    // HttpClientInMemoryWebApiModule.forRoot(
+    //   // 数据封装的属性，表示从根目录起就可以被引用
+    //   InMemoryDataService, {dataEncapsulation: false}
+    // ),
     BrowserAnimationsModule,
     NzAutocompleteModule,
     IconsProviderModule,
